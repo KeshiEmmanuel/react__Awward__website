@@ -1,5 +1,3 @@
-import { IconBaseProps, IconType } from "react-icons";
-
 interface Props {
     id: string;
     title: string;

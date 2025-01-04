@@ -13,24 +13,25 @@ const Hero = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [loadedVideos, setLoadedVideos] = useState(0);
 
-    const totalVideos = 4;
-    const nextVideoRef = useRef<HTMLVideoElement>(null);
-
-    const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
-    const handleMiniVideoClick = () => {
-        setHasClicked(true);
-        setCurrentIndex(upcomingVideoIndex);
-    };
-
-    const handleVideoLoad = () => {
-        setLoadedVideos((prev) => prev + 1);
-    };
+    let totalVideos = 3;
+    const nextVideoRef = useRef(null);
     useEffect(() => {
         if (loadedVideos === totalVideos - 1) {
             setIsLoading(false);
         }
     }, [loadedVideos]);
 
+    console.log(loadedVideos);
+    console.log(totalVideos);
+
+    const handleMiniVideoClick = () => {
+        setHasClicked(true);
+        setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
+    };
+
+    const handleVideoLoad = () => {
+        setLoadedVideos((prev) => prev + 1);
+    };
     useGSAP(
         () => {
             if (hasClicked) {
@@ -104,7 +105,7 @@ const Hero = () => {
                         >
                             <video
                                 ref={nextVideoRef}
-                                src={getVideoSrc(upcomingVideoIndex)}
+                                src={getVideoSrc(currentIndex)}
                                 id="current-video"
                                 onLoadedData={handleVideoLoad}
                                 className="size-64 origin-center scale-150 object-cover object-center"
