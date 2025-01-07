@@ -69,6 +69,7 @@ const Story = () => {
                                 />
                             </div>
                         </div>
+
                         <RoundedCorners />
                     </div>
                 </div>
