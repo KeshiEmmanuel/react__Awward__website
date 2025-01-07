@@ -16,7 +16,7 @@ const BentoTilt = ({ children, className }: BentoTiltProps) => {
     const [transformStyle, setTransformStyle] = useState<string>("");
     const itemRef = useRef<HTMLDivElement>(null);
 
-    const handleMouseMove = (event: MouseEvent) => {
+    const handleMouseMove = (event: React.MouseEvent) => {
         if (!itemRef.current) return;
 
         const { left, top, width, height } =
@@ -39,7 +39,7 @@ const BentoTilt = ({ children, className }: BentoTiltProps) => {
     return (
         <div
             className={`${className}`}
-            onMouseMove={(e) => handleMouseMove(e)}
+            onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             ref={itemRef}
             style={{

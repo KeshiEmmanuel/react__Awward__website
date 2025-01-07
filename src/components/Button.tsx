@@ -9,7 +9,7 @@ const Button = ({ id, title, containerClass, leftIcon, rightIcon }: Props) => {
     return (
         <button
             id={id}
-            className={`group relative z-10 w-fit cursor-pointer overflow-hidden px-7 py-3 rounded-full ${containerClass}`}
+            className={`group relative z-10 w-fit cursor-pointer overflow-hidden px-7 py-3 rounded-full bg-violet-50 text-black ${containerClass}`}
         >
             {leftIcon && leftIcon}
             <span className="uppercase font-general relative inline-flex overflow-hidden text-xs">
