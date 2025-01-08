@@ -45,8 +45,7 @@ const Hero = () => {
                     duration: 1,
                     ease: "power1.inOut",
                     onStart: () => {
-                        if (nextVideoRef.current)
-                            return nextVideoRef.current.play();
+                        nextVideoRef.current && nextVideoRef.current.play();
                     },
                 });
 
