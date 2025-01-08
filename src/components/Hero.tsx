@@ -10,28 +10,29 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
     const [currentIndex, setCurrentIndex] = useState(1);
     const [hasClicked, setHasClicked] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+
+    const [isLoading, setLoading] = useState(true);
     const [loadedVideos, setLoadedVideos] = useState(0);
 
-    let totalVideos = 4;
+    const totalVideos = 4;
     const nextVideoRef = useRef<HTMLVideoElement>(null);
-    useEffect(() => {
-        if (loadedVideos === totalVideos - 1) {
-            setIsLoading(false);
-        }
-    }, [loadedVideos]);
-
-    console.log(loadedVideos);
-    console.log(totalVideos);
-
-    const handleMiniVideoClick = () => {
-        setHasClicked(true);
-        setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
-    };
 
     const handleVideoLoad = () => {
         setLoadedVideos((prev) => prev + 1);
     };
+
+    useEffect(() => {
+        if (loadedVideos === totalVideos) {
+            setLoading(false);
+        }
+    }, [loadedVideos]);
+
+    const handleMiniVideoClick = () => {
+        setHasClicked(true);
+
+        setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
+    };
+
     useGSAP(
         () => {
             if (hasClicked) {
