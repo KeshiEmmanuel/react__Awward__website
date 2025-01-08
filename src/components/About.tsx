@@ -32,8 +32,7 @@ const About = () => {
                 </h2>
 
                 <AnimatedText
-                    title="Disc<b>o</b>ver the world's <br /> l<b>a</b>rgest shared
-                    adventure"
+                    title="Disc<b>o</b>ver the world's <br /> l<b>a</b>rgest shared adventure"
                     containerClass="mt-5 !text-black text-center"
                 />
 
